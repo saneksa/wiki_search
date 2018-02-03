@@ -1,0 +1,68 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "plugins": [
+    "sort-class-members",
+    "jsdoc"
+  ],
+  "rules": {
+    "jsdoc/newline-after-description": "off",
+    "jsdoc/require-description-complete-sentence": "off",
+    "jsdoc/require-param-description": "off",
+    "jsdoc/require-returns-description": "off",
+    "jsdoc/check-param-names": "error",
+    "jsdoc/check-tag-names": "error",
+    "jsdoc/check-types": "warn",
+    "jsdoc/require-hyphen-before-param-description": "error",
+    "jsdoc/require-param": "error",
+    "jsdoc/require-param-type": "error",
+    "jsdoc/require-returns-type": "error",
+    "key-spacing": "error",
+    "keyword-spacing": "error",
+    "semi-spacing": "error",
+    "block-spacing": ["error", "always"],
+    "space-before-blocks": "error",
+    "no-multi-spaces": "error",
+    "object-curly-spacing": "error",
+    "one-var-declaration-per-line": "error",
+    "brace-style": "error",
+    "space-in-parens": "error",
+    "no-lonely-if": "error",
+    "no-whitespace-before-property": "error",
+    "operator-linebreak": ["error", "after", { "overrides": { "?": "before", ":": "before" } }],
+    "curly": "error",
+    "default-case": "error",
+    "no-cond-assign": ["error", "except-parens"],
+    "no-dupe-keys": "error",
+    "no-duplicate-case": "error",
+    "arrow-body-style": ["error", "as-needed"],
+    "arrow-spacing": "error",
+    "max-len": ["error", 120, {"ignoreRegExpLiterals": true, "ignoreTemplateLiterals": true}],
+    "space-infix-ops": "error",
+    "sort-class-members/sort-class-members": ["error", {
+      "order": [
+        "[static-properties]",
+        "[static-methods]",
+        "[properties]",
+        "[conventional-private-properties]",
+        "constructor",
+        "[methods]",
+        "[conventional-private-methods]"
+      ]
+    }]
+  },
+  "settings": {
+    "jsdoc": {
+      "tagNamePreference": {
+        "return": "returns",
+        "returns": "return"
+      }
+    }
+  }
+}

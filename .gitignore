@@ -1,0 +1,9 @@
+node_modules/**
+site/**
+doc/**
+/site-test/*
+/.idea/watcherTasks.xml
+/.idea/workspace.xml
+webpack-params.config.js
+
+/.idea

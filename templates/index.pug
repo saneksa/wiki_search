@@ -1,0 +1,29 @@
+html
+    head
+        meta(charset="utf-8")
+        title #{htmlWebpackPlugin.options.title || 'Webpack App'}
+        if htmlWebpackPlugin.files.favicon
+            link(rel="shortcut icon" href=htmlWebpackPlugin.files.favicon)
+
+        each href in htmlWebpackPlugin.files.css
+            link(href=href rel="stylesheet")
+
+    body
+        div#root
+
+        if (htmlWebpackPlugin.options.appMountId)
+            div(id=htmlWebpackPlugin.options.appMountId)
+
+        if (htmlWebpackPlugin.options.appMountIds && htmlWebpackPlugin.options.appMountIds.length > 0)
+            each mountId in htmlWebpackPlugin.options.appMountIds
+                div(id=mountId)
+
+        if (htmlWebpackPlugin.options.window)
+            - var code = _.map(htmlWebpackPlugin.options.window, function(json, varName){ return 'window["' + varName + '"]=' + JSON.stringify(json) }).join(';\n');
+            script= code
+
+        each js in htmlWebpackPlugin.files.js
+            script(src=js)
+
+        if (htmlWebpackPlugin.options.devServer)
+            script(src=htmlWebpackPlugin.options.devServer + '/webpack-dev-server.js')

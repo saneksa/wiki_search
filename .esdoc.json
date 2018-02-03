@@ -1,0 +1,28 @@
+{
+  "source": "./src",
+  "destination": "./doc",
+  "experimentalProposal": {
+    "classProperties": true,
+    "objectRestSpread": true,
+    "decorators": true,
+    "doExpressions": true,
+    "functionBind": true,
+    "asyncGenerators": true,
+    "exportExtensions": true,
+    "dynamicImport": true
+  },
+  "manual": {
+    "globalIndex": true,
+    "asset": "./manual/asset",
+    "design": [
+      "./manual/overview.md",
+      "./manual/architecture.md",
+      "./manual/first_page.md",
+      "./manual/data_managing.md",
+      "./manual/forms.md",
+      "./manual/testing.md",
+      "./manual/build.md",
+      "./manual/glossary.md"
+    ]
+  }
+}
