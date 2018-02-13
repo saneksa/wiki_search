@@ -6,7 +6,7 @@ import * as _ from 'lodash';
 import {ConnectedSearchForm} from '../../components/SearchForm/SearchForm';
 import {searchWiki,linkCheck, linkUncheck} from '../../actions/wikiSearch';
 import {ConnectedLinksUncheck} from '../../components/Links/LinksUncheck';
-import {ConnectedLinksCheck} from '../../components/Links/LinksСheck';
+import {ConnectedLinksCheck} from '../../components/Links/LinksCheck';
 
 
 export class CustomWikiSearch extends React.Component {
