@@ -4,40 +4,38 @@ import {connect} from 'react-redux';
 import * as _ from 'lodash';
 
 import {ConnectedSearchForm} from '../../components/SearchForm/SearchForm';
-import {searchWiki} from '../../actions/wikiSearch';
+import {searchWiki,linkCheck, linkUncheck} from '../../actions/wikiSearch';
+import {ConnectedLinksUncheck} from '../../components/Links/LinksUncheck';
+import {ConnectedLinksCheck} from '../../components/Links/LinksСheck';
+
 
 export class CustomWikiSearch extends React.Component {
     static propTypes = {
         searchResults: PropTypes.arrayOf(PropTypes.object),
-        fetchData: PropTypes.func
+        fetchData: PropTypes.func,
+        linkCheck: PropTypes.any,
+        links_c: PropTypes.func,
+        links_u: PropTypes.func,
+        linkUncheck: PropTypes.any
     };
 
     constructor(...args) {
         super(...args);
 
         this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
-    }
-
-    componentWillMount() {
 
     }
 
     render() {
-        const items = [];
 
-        items.push(<ConnectedSearchForm form="wikiSearch" onSubmit={this.handleSearchSubmit}/>);
+        return (
+            <div style={{display: 'block'}}>
+                <ConnectedSearchForm form="wikiSearch" onSubmit={this.handleSearchSubmit}/>
+                <ConnectedLinksUncheck style={{display: 'block', marginRight: '700px'}}/>
+                <ConnectedLinksCheck style={{display: 'block'}}/>
+            </div>
 
-        if (this.props.searchResults) {
-            const pageLinks = _.map(this.props.searchResults, pageDescription =>
-                <a
-                    style={{display: 'block'}}
-                    key={pageDescription.fullurl}
-                    href={pageDescription.fullurl}>{pageDescription.title}
-                </a>);
-            items.push(<div key="searchResults">{pageLinks}</div>);
-        }
-
-        return <div>{items}</div>;
+        );
     }
 
     handleSearchSubmit(values) {
@@ -45,16 +43,30 @@ export class CustomWikiSearch extends React.Component {
             this.props.fetchData(values.search);
         }
     }
+
 }
 
 const mapStateToProps = state => ({
-    searchResults: state.wikiSearch && state.wikiSearch.data
+    searchResults: state.wikiSearch && state.wikiSearch.data,
+    linkUncheck: state.linku,
+    linkCheck: state.linkc
 });
 
 const mapDispatchToProps = dispatch => ({
     fetchData(text) {
         dispatch(searchWiki(text));
+    },
+
+    links_c(check_links) {
+        dispatch(linkCheck(check_links));
+
+    },
+
+    links_u(uncheck_links) {
+        dispatch(linkUncheck(uncheck_links));
+
     }
+
 });
 
 export const ConnectedWikiSearch = connect(mapStateToProps, mapDispatchToProps)(CustomWikiSearch);

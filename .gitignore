@@ -5,5 +5,4 @@ doc/**
 /.idea/watcherTasks.xml
 /.idea/workspace.xml
 webpack-params.config.js
-
 /.idea

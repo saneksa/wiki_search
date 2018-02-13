@@ -13,6 +13,7 @@ import {getStore} from './store';
 
 const renderApp = function() {
     const store = getStore();
+
     render((
         <App
             store={store}
