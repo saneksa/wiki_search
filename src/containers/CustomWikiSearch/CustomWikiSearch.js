@@ -13,10 +13,8 @@ export class CustomWikiSearch extends React.Component {
     static propTypes = {
         searchResults: PropTypes.arrayOf(PropTypes.object),
         fetchData: PropTypes.func,
-        linkCheck: PropTypes.any,
         links_c: PropTypes.func,
-        links_u: PropTypes.func,
-        linkUncheck: PropTypes.any
+        links_u: PropTypes.func
     };
 
     constructor(...args) {
@@ -47,9 +45,7 @@ export class CustomWikiSearch extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    searchResults: state.wikiSearch && state.wikiSearch.data,
-    linkUncheck: state.linku,
-    linkCheck: state.linkc
+    searchResults: state.wikiSearch && state.wikiSearch.data
 });
 
 const mapDispatchToProps = dispatch => ({
