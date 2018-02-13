@@ -53,7 +53,7 @@ export class LinksCheck extends React.Component {
                 </button>
             </div>);
 
-        items.push(<div key="searchResults">{pageLinks}</div>);
+        items.push(<div key="linksCheck">{pageLinks}</div>);
 
 
         return (

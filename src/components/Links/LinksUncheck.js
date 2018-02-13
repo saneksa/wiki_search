@@ -52,7 +52,7 @@ export class LinksUncheck extends React.Component {
                 </button>
             </div>);
 
-        items.push(<div key="searchResults">{pageLinks}</div>);
+        items.push(<div key="linksUncheck">{pageLinks}</div>);
 
 
         return (
