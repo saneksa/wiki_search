@@ -25,7 +25,6 @@ export const linksH = createLogic({
     latest: true,
     process({getState,action}, dispatch) {
         let k = $.extend(true, [], getState().links.linksUncheck);
-        console.log(k);
         let l = $.extend(true, {}, action.link_check);
         for (let i = 0; i < k.length; i++) {
             if (k[i].fullurl === action.link_check.fullurl) {
@@ -49,7 +48,6 @@ export const linksS = createLogic({
     latest: true,
     process({getState,action}, dispatch) {
         let k = $.extend(true, [], getState().links.linksCheck);
-        console.log(k);
         let l = $.extend(true, {}, action.link_uncheck);
         for (let i = 0; i < k.length; i++) {
             if (k[i].fullurl === action.link_uncheck.fullurl) {
