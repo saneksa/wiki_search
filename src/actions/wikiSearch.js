@@ -1,7 +1,6 @@
 export const SEARCH_WIKI = 'SEARCH_WIKI';
 export const RECEIVE_WIKI_SEARCH = 'RECEIVE_WIKI_SEARCH';
-export const LINK_CHECK = 'LINK_CHECK';
-export const LINK_UNCHECK = 'LINK_UNCHECK';
+export const LINKS_UPDATE = 'LINKS_UPDATE';
 export const LINK_CHECK_TO_LOGIC = 'LINK_CHECK_TO_LOGIC';
 export const LINK_UNCHECK_TO_LOGIC = 'LINK_UNCHECK_TO_LOGIC';
 
@@ -31,12 +30,8 @@ export const linkUncheckToLogic = (link_uncheck) => ({
 });
 
 
-export const linkCheck = (data) => ({
-    type: LINK_CHECK,
+export const linksUpdate = (data) => ({
+    type: LINKS_UPDATE,
     data
 });
 
-export const linkUncheck = (data) => ({
-    type: LINK_UNCHECK,
-    data
-});

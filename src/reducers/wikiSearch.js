@@ -1,4 +1,12 @@
-import {RECEIVE_WIKI_SEARCH , LINK_CHECK, LINK_UNCHECK} from '../actions/wikiSearch';
+import {RECEIVE_WIKI_SEARCH , LINKS_UPDATE} from '../actions/wikiSearch';
+
+const initialState = {
+    linksCheck: [],
+    linksUncheck: []
+};
+
+
+
 
 export const wikiSearch = (state = {}, action) => {
     switch (action.type) {
@@ -14,9 +22,9 @@ export const wikiSearch = (state = {}, action) => {
 };
 
 
-export const linkc = (state = {data: []}, action) => {
+export const links = (state = initialState, action) => {
     switch (action.type) {
-        case LINK_CHECK:
+        case LINKS_UPDATE:
             return {
                 ...state,
                 ...action.data
@@ -27,14 +35,3 @@ export const linkc = (state = {data: []}, action) => {
     }
 };
 
-export const linku = (state = {data: []}, action) => {
-    switch (action.type) {
-        case LINK_UNCHECK:
-            return {
-                ...state,
-                ...action.data
-            };
-        default:
-            return state;
-    }
-};

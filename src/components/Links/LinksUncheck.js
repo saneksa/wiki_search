@@ -68,8 +68,7 @@ export class LinksUncheck extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    linkUncheck: state.linku.data,
-    linkCheck: state.linkc.data
+    linkUncheck: state.links.linksUncheck,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -87,3 +86,4 @@ const mapDispatchToProps = dispatch => ({
 
 
 export const ConnectedLinksUncheck = connect(mapStateToProps, mapDispatchToProps)(LinksUncheck);
+
