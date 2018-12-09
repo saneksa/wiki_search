@@ -1,37 +1,31 @@
-import {RECEIVE_WIKI_SEARCH , LINKS_UPDATE} from '../actions/wikiSearch';
+import {RECEIVE_WIKI_SEARCH, LINKS_UPDATE} from '../actions/wikiSearch';
 
 const initialState = {
-    linksCheck: [],
-    linksUncheck: []
+  linksCheck: [],
+  linksUncheck: [],
 };
-
-
-
 
 export const wikiSearch = (state = {}, action) => {
-    switch (action.type) {
-        case RECEIVE_WIKI_SEARCH:
-            return {
-                ...state,
-                data: action.data
-            };
+  switch (action.type) {
+    case RECEIVE_WIKI_SEARCH:
+      return {
+        ...state,
+        data: action.data,
+      };
 
-        default:
-            return state;
-    }
+    default:
+      return state;
+  }
 };
-
 
 export const links = (state = initialState, action) => {
-    switch (action.type) {
-        case LINKS_UPDATE:
-            return {
-                ...state,
-                ...action.data
-
-            };
-        default:
-            return state;
-    }
+  switch (action.type) {
+    case LINKS_UPDATE:
+      return {
+        ...state,
+        ...action.data,
+      };
+    default:
+      return state;
+  }
 };
-

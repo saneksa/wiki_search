@@ -1,37 +1,20 @@
 export const SEARCH_WIKI = 'SEARCH_WIKI';
 export const RECEIVE_WIKI_SEARCH = 'RECEIVE_WIKI_SEARCH';
 export const LINKS_UPDATE = 'LINKS_UPDATE';
-export const LINK_CHECK_TO_LOGIC = 'LINK_CHECK_TO_LOGIC';
-export const LINK_UNCHECK_TO_LOGIC = 'LINK_UNCHECK_TO_LOGIC';
+export const SEND_TO_LOGIC = 'SEND_TO_LOGIC';
 
-
-
-export const searchWiki = (text) => ({
-    type: SEARCH_WIKI,
-    text
+export const searchWiki = text => ({
+  type: SEARCH_WIKI,
+  text,
 });
 
-export const receiveWikiSearch = ({data}) => ({
-    type: RECEIVE_WIKI_SEARCH,
-    data
+export const sendToLogic = (links, types) => ({
+  type: SEND_TO_LOGIC,
+  links,
+  types,
 });
 
-
-export const linkCheckToLogic = (link_check) => ({
-    type: LINK_CHECK_TO_LOGIC,
-    link_check
+export const linksUpdate = data => ({
+  type: LINKS_UPDATE,
+  data,
 });
-
-
-
-export const linkUncheckToLogic = (link_uncheck) => ({
-    type: LINK_UNCHECK_TO_LOGIC,
-    link_uncheck
-});
-
-
-export const linksUpdate = (data) => ({
-    type: LINKS_UPDATE,
-    data
-});
-
