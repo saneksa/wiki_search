@@ -9,7 +9,7 @@ import {titleCheckButton, titleUncheckButton} from '../Const';
 export const wikiSearch = createLogic({
   type: SEARCH_WIKI,
   latest: true,
-  process({action}, dispatch, done) {
+  process({getState, action}, dispatch, done) {
     $.get(
       `https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrsearch=${action.text.replace(
         /\s/g,
@@ -17,7 +17,7 @@ export const wikiSearch = createLogic({
       )}&origin=*&prop=info&inprop=url`,
       function(data) {
         const searchLinks = _.values($.extend(true, {}, data.query && data.query.pages));
-        dispatch(linksUpdate({linksUncheck: searchLinks}));
+        dispatch(linksUpdate({linksUncheck: [...getState().links.linksUncheck, ...searchLinks]}));
       }
     ).fail(function() {
       done();
@@ -28,7 +28,7 @@ export const wikiSearch = createLogic({
 export const linksLogic = createLogic({
   type: SEND_TO_LOGIC,
   latest: true,
-  process({getState, action}, dispatch) {
+  process({getState, action}, dispatch, done) {
     const linksCheckStore = [...getState().links.linksCheck];
     const linksUncheckStore = [...getState().links.linksUncheck];
     switch (action.types) {
@@ -45,5 +45,6 @@ export const linksLogic = createLogic({
       default:
         break;
     }
+    done();
   },
 });

@@ -1,5 +1,4 @@
 export const SEARCH_WIKI = 'SEARCH_WIKI';
-export const RECEIVE_WIKI_SEARCH = 'RECEIVE_WIKI_SEARCH';
 export const LINKS_UPDATE = 'LINKS_UPDATE';
 export const SEND_TO_LOGIC = 'SEND_TO_LOGIC';
 

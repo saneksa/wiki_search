@@ -6,7 +6,7 @@ import {searchWiki, sendToLogic} from '../../actions/wikiSearch';
 import LinksBlock from '../../components/Links/LinksBlock';
 import {titleCheckButton, titleUncheckButton} from '../../Const';
 
-export class CustomWikiSearch extends React.Component {
+export class CustomWikiSearch extends React.PureComponent {
   static propTypes = {
     searchResults: PropTypes.arrayOf(PropTypes.object),
     fetchData: PropTypes.func,
